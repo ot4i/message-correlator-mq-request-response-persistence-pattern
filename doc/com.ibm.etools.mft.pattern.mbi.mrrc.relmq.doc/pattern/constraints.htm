@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Details about what you need to know, and what resources you must have before you can use the Message Correlator for WebSphere MQ: request-response with persistence pattern."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Constraints on the use of the Message Correlator for WebSphere MQ: request-response with persistence pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="mbi.mrrc.relmq.constrainsts">
+<h1 class="topictitle1">Constraints on the use of the 
+<span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern</h1>
+<div>
+<p class="shortdesc">A number of constraints apply when you use this pattern.</p>
+<p>You can use the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern
+only if you meet all of the following constraints:</p>
+<ul>
+<li>Your requester and provider applications must use <span>WebSphere MQ</span> as the transport mechanism.</li>
+<li>Your provider applications must follow the convention of copying the message identifier to 
+the correlation identifier so that the broker can match the responses to their original request.</li>
+<li>Your requester and provider applications must send and accept compatible messages, unless 
+you include transformation capability in the customizable RequestProcessor subflow.</li>
+<li>If you choose to enable logging in the pattern, the log messages are sent to a queue.
+The processing of these log messages is outside the scope of this pattern and you must process the 
+logging messages in the way most appropriate for your organization. When logging is selected, log messages 
+are written to the log queue as persistent messages, which affects performance. Persistent messages are 
+used because it is assumed that logging is being used for audit purposes. If logging is for test or 
+information only, logging can be switched off in production systems by configuring the user-defined 
+properties (UDPs): 
+<span class="msobjprop">RequestLoggingOn</span> and <span class="msobjprop">ResponseLoggingOn</span>.</li>
+<li>If you choose to enable error messages in the pattern, error messages are sent to a queue 
+when an exception occurs. Monitoring errors and taking corrective action is outside the scope of the pattern, 
+and you must process the error messages in the way most appropriate for your organization.</li>
+<li>The pattern defines its own format for logging and error messages and it is assumed 
+that these are sufficient to meet the requirements in your own environment.</li>
+</ul>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> 
+pattern specification</a>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use the Message Correlator for WebSphere MQ: request-response with persistence pattern to accept requests from many client applications on a single queue, and to return responses to the correct client by using transactional flows and persistent WebSphere MQ messages."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Log subflow for the Message Correlator for WebSphere MQ: request-response with persistence pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="mbi.mrrc.relmq.overview">
+<div><h1 class="topictitle1">Log subflow for the <span>Message Correlator for WebSphere MQ: 
+request-response with persistence</span> pattern</h1>
+<p class="shortdesc">If the Log subflow is included in the Request flow, the logging of requests is 
+controlled by the user-defined property: 
+<span class="msobjprop">RequestLoggingOn</span>. If the Log subflow is included in the Response flow, 
+the logging of responses is controlled by the user-defined property: 
+<span class="msobjprop">ResponseLoggingOn</span>.</p>
+<p>If the <span class="msobjprop">RequestLoggingOn</span> property is selected, logging is required, 
+the Log subflow is called and ends the flow. If the logging fails, the exception is caught within the 
+flow and the information is written to a <span>Trace</span> node.</p>
+<p>If logging is included in the Response flow, the Log subflow is called. All errors in logging are caught, 
+the flow ends successfully and the flow transaction is committed.</p>
+<p>Log messages are written as persistent WebSphere MQ messages to
+a <span>WebSphere MQ</span> queue. These log messages are then processed separately in accordance with 
+the standard practices within your organization.</p>
+The message log contains the original message and the following information in an MQRFH2 header: 
+<ul>
+<li>Time stamp</li>
+<li>Broker name</li>
+<li>Message flow name</li>
+</ul>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> 
+pattern specification</a>
+</body>
+</html>

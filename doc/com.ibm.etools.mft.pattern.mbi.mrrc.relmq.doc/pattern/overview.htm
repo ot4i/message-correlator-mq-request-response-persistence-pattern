@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use the Message Correlator for WebSphere MQ: request-response with persistence pattern to accept requests from many client applications on a single queue, and to return responses to the correct client by using transactional flows and persistent WebSphere MQ messages."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Message Correlator for WebSphere MQ: request-response with persistence pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="mbi.mrrc.relmq.overview">
+<h1 class="topictitle1"><span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern</h1>
+<div><p class="shortdesc">Use the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern
+to accept requests from many client applications on a single queue, and to return responses
+to the correct client by using transactional flows and persistent WebSphere MQ messages.</p>
+<p>Because this pattern uses reliable communications with persistent messages and transactional flows, 
+it is appropriate
+to use when the message interchanges result in updates that requires no loss of data.</p>
+</div><div class="image"><img src="relmq.gif" 
+alt="A diagram showing the behavior of the pattern. A number of Requesting Applications send messages to the broker. The reply address of the requester is stored before the message is forwarded to the provider and re-stored when a response is received from the provider." />
+<div class="section"><h2 class="sectiontitle">Solution</h2></div> 
+<p>The solution is to implement a mediation flow that stores away the MQMD header
+information from each request message, indexed by a message identifier, before forwarding the
+message, with all of its headers, to the provider application. This request message to the provider
+specifies the response queue of the broker in the reply-to part of the message header.
+In accordance with conventional practice, the provider application is expected to copy the message
+identifier from the request message into the correlation identifier field of the response message. 
+On receipt of a response message, the broker flow uses the correlation identifier to retrieve the 
+previously stored MQMD header, and uses the reply address to update the incoming MQMD header. 
+This action ensures that the original reply-to address from the requester is used. 
+The response message is then returned to the requester with all of its headers.</p>
+<p>Read the following section for information about the design of
+the message flows in this pattern.</p>
+<div><a href="requestflow.htm" title="Design information about the Request message flow.">Request flow</a></div>
+<div><a href="responseflow.htm" title="Design information about the Response message flow.">Response flow</a></div>
+<div><a href="errorflow.htm" title="Design information about the Error subflow.">Error subflow</a></div>
+<div><a href="logflow.htm" title="Design information about the Log subflow.">Log subflow</a></div>
+<div>
+<a name="anchor1"></a>
+<div class="section"><h2 class="sectiontitle">Related tasks</h2></div>
+<p>Read the following section for information about how to apply and use this pattern.</p>
+<div><a href="constraints.htm" title="Constraints on the use of the Message Correlator for WebSphere MQ: request-response with persistence.">Constraints on the use of the pattern</a></div>
+<div><a href="prereq.htm" title="Details about what you need to know, and what resources you must have before you can use the Message Correlator for WebSphere MQ: request-response with persistence.">Tasks 
+to complete before applying the pattern</a></div>
+
+<div><a href="parametertable.htm" title="Apply the pattern and configure parameters">Parameters for the 
+pattern</a></div>
+<div><a href="postreq.htm" title="">Tasks to complete after generating the pattern</a></div>
+</div>
+</div></body>
+</html>

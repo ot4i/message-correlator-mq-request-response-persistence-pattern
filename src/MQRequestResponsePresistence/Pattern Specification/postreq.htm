@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Tasks to complete after generating the Message Correlator for WebSphere MQ: request-response with persistence pattern"/>
+<meta name="description" content=""/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tasks to complete after generating the Message Correlator for WebSphere MQ: request-response with persistence pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="mbi.mrrc.relmq.postreq">
+<h1 class="topictitle1">Tasks to complete after generating the 
+<span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern</h1>
+<div>
+<p class="shortdesc">Tasks that you must complete after you have generated the pattern.</p><ol>
+<li>Create the broker archive (BAR) file. 
+Add the generated message flow to your BAR file. In the Broker Archive editor, you must select the 
+<span class="uicontrol">Compile and in-line resources</span> option before you build the BAR file.
+Message sets that are referenced by the flow must also be added.
+</li>
+<li>Configure the broker archive file. Further configuration of the message flow in the broker archive file 
+is not required
+before you deploy the message flows for your 
+<span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern instance, 
+but you might want to review some of the default options and configure changes for your environment. 
+</li>
+<li>Create queues. When you apply the pattern, a list of WebSphere MQ queues is generated, with
+queue names and queue manager names, which must be created if they do
+not already exist. All of the message settings that are required by the pattern are
+set explicitly on the messages and are not dependent on queue settings.
+		<ol>
+		<li>In the summary file, view the list of queues that you must create. The summary file 
+ 		is located in the Pattern Configuration folder of the 
+ 		<i>InstanceName</i> pattern instance project.</li>
+		<li>Create <span>WebSphere MQ</span> resources. You can create <span>WebSphere MQ</span> resources
+		 either on the command
+		line by using programs and utilities such as <span class="cmdname">runmqsc</span>, or by using the 
+		<span>WebSphere MQ</span> Explorer graphical interface.
+		For more information about creating <span>WebSphere MQ</span> resources,
+		see <cite><span>WebSphere MQ</span> Intercommunication</cite>,
+		available on the  <img src="../../../images/external_link.gif" alt="This link opens in a new window" class="external_link" />
+		<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere MQ
+		library</a> web page.</li>
+		<li>Configure the input and response queues to have backout
+		queues for preservation of messages when errors cause the message flow to be backed out.</li>
+		</ol>
+</li>
+<li>Implement your approach for monitoring and correcting errors.
+This might require monitoring the queue for error messages or monitoring the event log and backout queues.</li>  
+</ol>
+<a href="overview.htm#anchor1" title="Back">Back to the Message Correlator for WebSphere MQ: request-response with persistence pattern specification</a>
+</div></body>
+</html>

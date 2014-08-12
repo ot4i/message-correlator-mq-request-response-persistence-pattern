@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Use the Message Correlator for WebSphere MQ: request-response with persistence pattern to accept requests from many client applications on a single queue, and to return responses to the correct client by using transactional flows and persistent WebSphere MQ messages."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Response flow for the Message Correlator for WebSphere MQ: request-response with persistence pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="mbi.mrrc.relmq.overview">
+<div><h1 class="topictitle1">Response flow for the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> pattern</h1>
+<p class="shortdesc">The Response flow runs as a transactional flow.</p>
+<p>When a response is received
+from the provider application, the following actions are taken:</p>
+<ol>
+<li>The message flow includes a subflow called ResponseProcessor.
+This subflow contains only a <span>Passthrough</span> node, therefore
+no processing is performed. 
+You can customize this subflow in your pattern instance to add your own processing
+without changing the structure of the pattern. </li>
+<li>The saved MQMD header is retrieved from the storage queue and added to the response message so that it 
+contains the correct address to respond to the requester.</li>
+<li>The response is returned to the requester.</li>
+<li>The message flow might contain a subflow for logging, called Log.
+You can configure the pattern to include or exclude logging.
+If logging is included, the Log subflow is called. 
+		</li>
+<li>If logging is not included, the message flow ends successfully and the transaction is committed.</li>
+<li>The message flow also contains a subflow for error handling. 
+</li>
+<li>Error messages are written to the error queue, if you have configured
+this option for your pattern instance.</li>
+</ol>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> 
+pattern specification</a>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+<meta name="abstract" content="Details about what you need to know, and what resources you must have before you can use the Message Correlator for WebSphere MQ: request-response with persistence pattern."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+<title>Tasks to complete before applying the Message Correlator for WebSphere MQ: request-response with persistence pattern</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="mbi.mrrc.relmq.prereq">
+<h1 class="topictitle1">Tasks to complete before applying the <span>Message Correlator for WebSphere MQ: request-response with persistence</span> 
+pattern</h1>
+<div><div class="section">
+<p class="shortdesc">Before applying the pattern to produce a pattern instance, you must determine
+which of the following tasks are required. If required, complete the following tasks:</p>
+</div>
+<ul><li>Select a unique name for the pattern instance.
+You can use the pattern multiple times and create multiple different instances which can be distinguished by
+their unique names. Identify the purpose of the pattern instance so that you can decide on an appropriate
+or meaningful unique name.</li>
+<li>Select the <span>WebSphere MQ</span> queue managers and queues that you want the pattern instance to use, 
+for example, to access the provider application. If you are using existing queues, these must be recorded. 
+If you want to create new queue managers and queues, you must decide on the names for these resources.</li>
+<li>Identify any additional queue managers and queues that are required for this pattern and decide 
+on the unique names that you want to use. Take into account any policies, standards, or naming conventions 
+that must apply.</li>
+<li>Decide if validation of the incoming request messages or the provider response messages is required. 
+If your requester and provider applications generate correct messages, validation might not be necessary. 
+If you want to validate your messages, you must already have a message set to provide the message definitions, 
+or you must create a message set to provide the message definitions.</li>
+<li>Decide whether you require logging of request messages, responses messages, or both. 
+If logging is required, you must decide to which queue manager and queue the logging messages are sent.
+You can send logging messages to a general log queue that is used by multiple message flows, 
+or you can use a queue specifically for the pattern instance.</li>
+<li>Decide if you want to produce error messages for the pattern instance.  
+If this pattern instance handles updates, use error handling to ensure that you do not lose any data. 
+You can send error messages to a general error queue that is used by multiple message flows, 
+or you can use a queue specifically for the pattern instance. If you choose to send error messages 
+in the pattern instance, you can turn this function on or off by configuring the broker archive (BAR) file 
+before deployment.</li>
+</ul>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the Message Correlator for WebSphere MQ: request-response with persistence pattern specification</a>
+</body>
+</html>
