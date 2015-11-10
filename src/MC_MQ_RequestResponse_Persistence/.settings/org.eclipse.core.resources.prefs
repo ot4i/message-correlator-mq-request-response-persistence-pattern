@@ -1,9 +1,0 @@
-#Mon Aug 04 13:38:29 BST 2014
-encoding//mqsi/ResponseProcessor.subflow=UTF-8
-encoding//mqsi/Intermediary.esql=UTF-8
-encoding//mqsi/Request.msgflow=UTF-8
-eclipse.preferences.version=1
-encoding//mqsi/Error.subflow=UTF-8
-encoding//mqsi/Error.esql=UTF-8
-encoding//mqsi/RequestProcessor.subflow=UTF-8
-encoding//mqsi/Response.msgflow=UTF-8
