@@ -1,0 +1,863 @@
+@import url(swg_info_common.css);
+
+/*
+ *                  Hursley XHTML stylesheet V4.0 
+ *                  =============================
+ *
+ * 02 Nov 2004  pmh  Added explicit body b/g color; font sizes for IE/Mozilla; header sizes
+ * 30 Nov 2004  pmh  Added msg formats; changed pblklblbox color & spacing
+ * 12 Jan 2005  pmh  Changed style of tip boxes for Mozilla/Firefox
+ * 31 Jan 2005  pmh  'tip' boxes not rendering correctly in Mozilla/Firefox
+ * 08 Feb 2005  pmh  added .comment classes and images inside anchors
+ * 09 Feb 2005  pmh  added extra DITA elements
+ * 23 Feb 2005  pmh  changed font sizes for div.head0 etc - were too small
+ *    May 2005  pmh  added "pre a img" selector to fix spacing of c.gif in syntax diagrams
+ * 25 May 2005  pmh  .keyword: monospace -> normal font
+ *                   .cmdname: normal font -> bold
+ * 13 Jun 2005  pmh  .option, .cmdopt, .syscmdopt  font: italic -> bold
+ * 30 Jun 2005  pmh  added list section to sort out spacing of list items
+ * 28 Jul 2005  pmh  added li margin and adjusted platform icon settings to work in lists
+ * 29 Jul 2005  pmh  stopped the display of <hr> and borders (used with <fig> & <pre> element)
+ * 02 Aug 2005  pmh  fixed bug
+ * 02 May 2006  pmh  fixed relative font sizes in Mozilla / IE                     
+ *                   fixed problem with tables in lists being too wide in IE       
+ *                   updated for new MQ style guidelines
+ * 12 Jun 2006  pmh  added li span selectors for platform icons (= step cmd in DITA)
+ * 20 Sep 2006  pmh  added calloutlabel class
+ * 01 Nov 2006  pmh  removed platform icons (use DITA platform attribute instead)
+ * 21 Dec 2006  pmh  adjust padding on .definition
+ *                   fix .tip etc. that are in pre/postreq sections
+ * 18 Jan 2007  pmh  change background color of .tip etc. that are in pre/postreq sections
+ * 01 Mar 2007  pmh  added .docscd
+ * 14 Oct 2008  jm   added .amqmsg
+ */
+
+/*************************************************************************
+ * Selectors imported from IBM IDWB XHTML Stylesheet (ibmdita.css).      *
+ * Selectors in swg_info_common.css are not repeated unless different.   *
+ * N.B. Styles added to support .NET output are not included.            *
+ *************************************************************************/
+
+/* following are also defined in swg_info_common.css but have no effect there */
+
+.unresolved { background-color: skyblue; }
+.noTemplate { background-color: yellow; }
+
+.fignone {margin-top: 1em}
+.figborder { border-style: solid; padding-left : 3px; border-width : 2px; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.figsides { border-left : 2px solid; padding-left : 3px; border-right : 2px solid; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.figtop { border-top : 2px solid; margin-top: 1em; border-color : Silver;}
+.figbottom { border-bottom : 2px solid; border-color : Silver;}
+.figtopbot { border-top : 2px solid; border-bottom : 2px solid; margin-top: 1em; border-color : Silver;}
+
+.synnone {margin-top: 1em}
+.synborder { border-style: solid; padding-left : 3px; border-width : 2px; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.synsides { border-left : 2px solid; padding-left : 3px; border-right : 2px solid; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.syntop { border-top : 2px solid; margin-top: 1em; border-color : Silver;}
+.synbottom { border-bottom : 2px solid; border-color : Silver;}
+.syntopbot { border-top : 2px solid; border-bottom : 2px solid; margin-top: 1em; border-color : Silver;}
+
+
+/* following is defined in swg_info_common.css to have no margins */
+
+.skipspace { margin-top: 1em; margin-bottom: 1em }
+
+
+/*********************************
+ * IDWB IBMIDDoc tags            *
+ *********************************/
+
+div.head0 { font-size: 1.1em; }
+div.head1 { font-size: 1.0em; }
+div.head2 { font-size: 0.9em; }
+div.head3 { font-size: 0.9em; }
+div.head4 { font-size: 0.9em; }
+div.head5 { font-size: 0.9em; }
+div.head6 { font-size: 0.9em; }
+div.head7 { font-size: 0.9em; }
+div.head8 { font-size: 0.9em; }
+div.head9 { font-size: 0.9em; }
+
+
+/*********************************
+ * DITA styles                   *
+ * from ibmdita.css in Epic 5.1  *
+ *********************************/
+
+.sidebar {background: silver }
+.toc {font-size: small; }
+
+.base { background-color: #ffffff; }
+.breadcrumb { font-size : smaller;}
+.prereq { margin-left : 20px;}
+.hierarchy { display: block; border-style: solid; padding-left : 3px; border-width : 2px; padding-right : 3px; border-color : Silver;}
+
+.nested0 { margin-top : 1em;}
+.nested1 { }
+.nested2 { }
+
+p, .p {margin-top: .8em}
+
+.tableborder { margin-top: 1em; margin-bottom: 1em }
+.tablenoborder { margin-top: 1em; margin-bottom: 1em }
+caption { text-align: left; font-style: italic }
+.simpletableborder { margin-top: 1em; margin-bottom: 1em }
+.simpletablenoborder { margin-top: 1em; margin-bottom: 1em }
+.choicetableborder { margin-top: 1em; margin-bottom: 1em }
+.choicetablenoborder { margin-top: 1em; margin-bottom: 1em }
+
+.figcap { font-style: italic }
+.figdesc { font-style: normal }
+
+.fignone {margin-top: 1em}
+.figborder { border-style: solid; padding-left : 3px; border-width : 2px; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.figsides { border-left : 2px solid; padding-left : 3px; border-right : 2px solid; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.figtop { border-top : 2px solid; margin-top: 1em; border-color : Silver;}
+.figbottom { border-bottom : 2px solid; border-color : Silver;}
+.figtopbot { border-top : 2px solid; border-bottom : 2px solid; margin-top: 1em; border-color : Silver;}
+
+.synnone {margin-top: 1em}
+.synborder { border-style: solid; padding-left : 3px; border-width : 2px; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.synsides { border-left : 2px solid; padding-left : 3px; border-right : 2px solid; padding-right : 3px; margin-top: 1em; border-color : Silver;}
+.syntop { border-top : 2px solid; margin-top: 1em; border-color : Silver;}
+.synbottom { border-bottom : 2px solid; border-color : Silver;}
+.syntopbot { border-top : 2px solid; border-bottom : 2px solid; margin-top: 1em; border-color : Silver;}
+
+.skip { margin-top: 1em }
+.skipspace { margin-top: 1em; margin-bottom: 1em }
+.ullinks { list-style-type: none }
+.ulchildlink { margin-top: 1em; margin-bottom: 1em }
+.olchildlink { margin-top: 1em; margin-bottom: 1em }
+.linklist { margin-bottom: 1em }
+.linklistwithchild { margin-left: 1.5em; margin-bottom: 1em  }
+.sublinklist { margin-left: 1.5em; margin-bottom: 1em  }
+.relconcepts { margin-top: 1em; margin-bottom: 1em }
+.reltasks { margin-top: 1em; margin-bottom: 1em }
+.relref { margin-top: 1em; margin-bottom: 1em }
+.relinfo { margin-top: 1em; margin-bottom: 1em }
+div.breadcrumb {margin-bottom: 1em }
+
+.section { margin-top: 1em; margin-bottom: 1em }
+.example { margin-top: 1em; margin-bottom: 1em }
+
+.note { margin-top: 1em; margin-bottom : 1em;}
+.notetitle { font-weight: bold }
+.notelisttitle { font-weight: bold }
+.tip { margin-top: 1em; margin-bottom : 1em;}
+.tiptitle { font-weight: bold }
+.fastpath { margin-top: 1em; margin-bottom : 1em;}
+.fastpathtitle { font-weight: bold }
+.important { margin-top: 1em; margin-bottom : 1em;}
+.importanttitle { font-weight: bold }
+.remember { margin-top: 1em; margin-bottom : 1em;}
+.remembertitle { font-weight: bold }
+.restriction { margin-top: 1em; margin-bottom : 1em;}
+.restrictiontitle { font-weight: bold }
+.attention { margin-top: 1em; margin-bottom : 1em;}
+.attentiontitle { font-weight: bold }
+.dangertitle { margin-top: 1em; font-weight: bold }
+.danger { padding: 5px 5px 5px 5px; border: solid; border-width: thin; font-weight: bold; margin-top: 2px; margin-bottom : 1em; }
+.cautiontitle { margin-top: 1em; font-weight: bold }
+.caution { font-weight: bold; margin-bottom : 1em; }
+
+ul.simple { list-style-type: none }
+
+.firstcol { font-weight : bold;}
+
+.bold { font-weight: bold; }
+.boldItalic { font-weight: bold; font-style: italic; }
+.italic { font-style: italic; }
+.underlined { text-decoration: underline; }
+.uicontrol { font-weight: bold; }
+.parmname { font-weight: bold; }
+.kwd { font-weight: bold; }
+.defkwd { font-weight: bold; text-decoration: underline; }
+.var { font-style : italic;}
+.shortcut { text-decoration: underline; }
+.calloutlabel { color: white; background-color: black; font-weight: bold; }
+
+.ptocH1 {font-size: x-small; }
+.ptocH2 {font-size: x-small; }
+
+.smallCaps { text-transform: uppercase; font-size: smaller; }
+.stitle { font-style: italic; text-decoration: underline; }
+.nte {}
+
+.dlterm { font-weight: bold; }
+.dltermexpand { font-weight: bold; margin-top: 1em; }
+.defListHead { font-weight: bold; text-decoration: underline; }
+.parmListKwd { font-weight: bold; }
+.parmListVar { font-style: italic; }
+.pk { font-weight: bold; text-decoration: underline; }
+
+*[compact="yes"]>li { margin-top: 0em;}
+*[compact="no"]>li { margin-top: .53em;}	
+.liexpand { margin-top: 1em; margin-bottom: 1em }
+.sliexpand { margin-top: 1em; margin-bottom: 1em }
+.dlexpand { margin-top: 1em; margin-bottom: 1em }
+.ddexpand { margin-top: 1em; margin-bottom: 1em }
+.stepexpand { margin-top: 1em; margin-bottom: 1em }
+.substepexpand { margin-top: 1em; margin-bottom: 1em }
+
+div.imageleft { text-align: left }
+div.imagecenter { text-align: center }
+div.imageright { text-align: right }
+div.imagejustify { text-align: justify }
+
+pre.screen { padding: 5px 5px 5px 5px; border: outset; background-color: #f0f0f0; margin-top: 2px; margin-bottom : 2px; white-space: pre}
+
+
+.keyword, .syscmd, .envar, .menucascade, .msgnum, .softcopy, .q, .wintitle, .wizard { }
+
+.apiname {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+.syscmdval, .envarval, .mfnodepropval, .msobjpropval, .cmdval {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+.codeph {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+.filepath {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+.option, .cmdopt, .syscmdopt {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+.cmdname, .wmqsecgrp {
+   font-weight          : bold;
+}
+.mfnodeprop, .msobjprop {
+   font-style           : italic;
+}
+.varname, .syscmdvar, .msgvar, .cmdvar {
+   font-style           : italic;
+}
+.term {
+   font-style           : italic;
+}
+cite, .hardcopy, .book {
+   font-style           : italic;
+}
+.infocenter, .www {
+   font-style           : normal;
+}
+
+
+/*************************************************************************
+ * Changed IDWB selectors and selectors specific to Hursley.             *
+ *************************************************************************/
+
+
+/********************************************************
+ * Font families extracted here to make global
+ * changes for translation etc easier.
+ ********************************************************/
+
+body {
+   font-family          : Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+   font-family          : Arial, Helvetica, sans-serif;
+}
+span.pblktitle {
+   font-family          : Arial, Helvetica, sans-serif;
+}
+pre, tt {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+.cgraphic, .mv, .xmp, .xph, .pk, .pkdef, .pv, .bin, .hex, .oct, .msgph {
+   font-family          : "Andale Mono", "Courier New", Courier, monospace;
+}
+ .status, .statusl, .statusr {
+   font-family          : "Courier New", Courier, monospace;
+}
+
+/********************************************************
+ * Headers
+ ********************************************************/
+.topictitle1, .topictitle2, .topictitle3, .topictitle4, .topictitle5, .topictitle6,
+h1, h2, h3, h4, h5, h6 { font-style : normal;}  
+.topictitle1, .topictitle2, .topictitle3, .topictitle5,
+h1, h2, h3, h5         { font-weight: bold;}
+.topictitle4, .topictitle6,
+h4, h6                 { font-weight: normal;}
+.topictitle2, h2, .amqmsg {
+   background-image     : url(helpbanner2.gif);
+   background-repeat    : no-repeat;
+   background-position  : top left;
+   margin-top           : 1em;
+   margin-bottom        : 1em;
+   margin-left          : 0em;
+   margin-right         : 0em;
+   padding-top          : 0.2em;
+   padding-left         : 0em;
+}
+.topictitle1, h1, .title, .pagetitle, .topictitle1 {
+	font-size: 1.7em;
+}
+.topictitle2, h2, .subtitle, .pagesubtitle, .topictitle2 {
+   font-size: 1.5em;
+ }
+.topictitle3, h3, .boldtitle, .topictitle3 {	
+   font-size: 1.3em;
+}
+.topictitle4, h4, .topictitle4 {
+   font-size: 1.3em;
+}
+.topictitle5, h5, .topictitle5 {
+   font-size: 1.1em;
+}
+.topictitle6, h6, .topictitle6 {
+   font-size: 1.1em;
+}
+
+/********************************************************
+ * Q & A list
+ ********************************************************/
+.question {
+   font-weight          : bold;
+   background-image     : url(query3.gif);
+   background-repeat    : no-repeat;
+   background-position  : top left;
+   margin-bottom        : 0em;
+   margin-right         : 0em;
+   padding-top          : 10px;
+   padding-bottom       : 1em;
+   padding-left         : 40px;
+   padding-right        : 4em;
+}
+.answer {
+   font-weight          : normal;
+   list-style-type      : none;
+   margin-top           : 0.5em;
+   margin-bottom        : 0em;
+   padding-top          : 0em;
+   padding-bottom       : 0em;
+   padding-left         : 0em;
+}
+.yes {
+   font-weight          : bold;
+   margin-top           : 0em;
+   margin-bottom        : 0em;
+   padding-top          : 0em;
+   padding-bottom       : 0em;
+}
+.no {
+   font-weight          : bold;
+   margin-top           : 0em;
+   margin-bottom        : 0em;
+   padding-top          : 0em;
+   padding-bottom       : 0em;
+}
+.more {
+   font-weight          : normal;
+   list-style-type      : none;
+   margin-top           : 0em;
+   margin-bottom        : 0em;
+   padding-top          : 0em;
+   padding-bottom       : 0em;
+   padding-left         : 2em;
+}
+
+/********************************************************
+ * Lists etc
+ ********************************************************/
+
+li {
+	margin-left : 60px; /* to accommodate platform icons */
+	padding-top : 0.2em;
+	padding-bottom : 0.3em;
+	margin-top : 0em;
+	margin-bottom : 0em;
+}
+
+li ol li {
+	list-style-type: lower-alpha;
+}
+
+li ol li ol li {
+	list-style-type: lower-roman;
+}
+
+li p {
+	padding-top : 0.1em;
+	margin-top : 0em;
+	margin-bottom : 0em;
+}
+li .p {
+	padding-top : 0.1em;
+	margin-top : 0em;
+	margin-bottom : 0em;
+}
+
+li .note {
+	padding-top : 0.1em;
+	margin-top : 0em;
+	margin-bottom : 0em;
+}
+
+*[compact="yes"]>li {
+	margin-top: 0 em;
+	padding-top : 0em;
+	padding-bottom : 0em;
+}
+*[compact="no"]>li {
+	margin-top: 0em;
+}
+
+.liexpand, .sliexpand, .dlexpand, .ddexpand, .stepexpand, .substepexpand {
+   margin-top: 0em;
+   margin-bottom: 0em;
+}
+
+/********************************************************
+ * Tables
+ ********************************************************/
+table {
+   font-size            : 100%;
+   color                : black;
+   background           : white;
+   border-collapse      : collapse;
+   margin-top           : 1em;
+   margin-bottom        : 1em;
+   margin-left          : 0em;
+   margin-right         : 0em;
+} 
+td {
+	font-size            : 95%;
+   color                : black;
+   background           : white;
+   vertical-align       : top;
+   padding-top          : 0.1em;
+   padding-bottom       : 0.3em;
+   padding-left         : 1em;
+   padding-right        : 1em;
+} 
+th {
+   font-size            : 105%;
+   color                : black;
+   background           : #eceff7;
+   vertical-align       : top;
+   padding-top          : 0.1em;
+   padding-bottom       : 0.3em;
+   padding-left         : 1em;
+   padding-right        : 1em;
+} 
+
+/********************************************************
+ * footer
+ ********************************************************/
+
+.footer {
+   background           : #ffffff;
+   border               : 0px  solid #dddddd;
+   margin-top           : 4em;
+   margin-bottom        : 1em;
+}
+.footerright, .footerleft {
+   border               : 0px  solid #dddddd;
+   font-size            : 0.9em;
+   padding-top          : 1em;
+}
+.footerleft {
+   background-image     : url(helpbanner2.gif);
+   background-repeat    : no-repeat;
+   background-position  : top left;
+   padding-left         : 0em;
+	vertical-align       : top;
+	text-align           : left;
+}
+.footerright {
+	vertical-align       : top;
+	text-align           : right;
+}
+
+/********************************************************
+ * highlighting
+ ********************************************************/
+
+/*******************
+ * IBMIDDoc styles *
+ *******************/
+.mv, .xmp, .xph, .pk, .pkdef, .pv, .bin, .hex, .oct {
+   color                : black;
+   font-size            : 105%;
+}
+.pk, span.pk {
+   font-weight          : bold;
+   text-decoration      : none;
+}
+
+.xmp {
+   padding-top          : 0.2em;
+   padding-bottom       : 0.3em;
+   padding-left         : 2em;
+   padding-right        : 0em;
+   margin-bottom        : 1em;
+	border-left          : none;
+	border-width         : 1px;
+}
+
+.pkdef {
+   text-decoration      : underline;
+}
+.pv {
+   font-style           : italic;
+}
+
+.IBMCommand, .IBMFilepath, .IBMGuiControl, .emphasis, .inlinedef {
+   color                : black;  /* V2: darkblue */
+}
+.IBMCommand {
+   font-weight          : bold;
+}
+.IBMFilepath { 
+/*
+   background-color     : #ffcccc;
+	text-decoration      : line-through;
+*/
+}
+.IBMGuiControl {
+   font-weight          : bold;
+}
+.emphasis {
+   font-style           : italic;
+}
+.inlinedef {
+   font-style           : italic;
+}
+
+
+
+/*******************
+ * platform icons  *
+ * - DEPRECATED -  *
+ *******************/
+/***************************************************************************
+.aix, .hpux, .sun, .unix, .win2, .winnt, .win, .zos, .linux, .os390, .os400, .c, .cplusplus, .cobol, .fortran, .java, .macosx, .os2, .pl1, .rpg  
+{
+   background-repeat    : no-repeat;
+   background-position  : 0px 4px;
+   margin-top           : 0.5em;
+   text-indent          : 55px;
+}
+li p.win, li p.aix, li p.hpux, li p.sun, li p.unix, li p.win2, li p.winnt, li p.win, li p.zos, li p.linux, li p.os390, li p.os400, li p.c, li p.cplusplus, li p.cobol, li p.fortran, li p.java, li p.macosx, li p.os2, li p.pl1, li p.rpg  
+{
+   background-position  : 55px 4px;
+   margin-left          : -55px;
+   padding-left         : 55px;
+}
+li span.win, li span.aix, li span.hpux, li span.sun, li span.unix, li span.win2, li span.winnt, li span.win, li span.zos, li span.linux, li span.os390, li span.os400, li span.c, li span.cplusplus, li span.cobol, li span.fortran, li span.java, li span.macosx, li span.os2, li span.pl1, li span.rpg  
+{
+   background-position  : 55px 4px;
+   margin-left          : -55px;
+   padding-left         : 110px;
+   text-indent          : 55px;
+}
+
+
+.aix        { background-image: url(ngaix.gif); }
+.hpux       { background-image: url(nghpux.gif); }
+.sun        { background-image: url(ngsolaris.gif); }
+.unix       { background-image: url(ngunix.gif); }
+.win2       { background-image: url(ng2000.gif); }
+.winxp      { background-image: url(ngxp.gif); }
+.winnt      { background-image: url(ngnt.gif); }
+.win        { background-image: url(ngwin.gif); }
+.zos        { background-image: url(ngzos.gif); }
+.linux      { background-image: url(nglinux.gif); }
+.os390      { background-image: url(ng390.gif); }
+.os400      { background-image: url(ng400.gif); }
+.c          { background-image: url(ngc.gif); }
+.cplusplus  { background-image: url(ngcpp.gif); }
+.cobol      { background-image: url(ngcobol.gif); }
+.fortran    { background-image: url(ngfortran.gif); }
+.java       { background-image: url(ngjava.gif); }
+.macosx     { background-image: url(ngmacosx.gif); }
+.os2        { background-image: url(ngos2.gif); }
+.pl1        { background-image: url(ngpl1.gif); }
+.rpg        { background-image: url(ngrpg.gif); }
+***************************************************************************/
+
+
+
+/********************************************************
+ * Misc.
+ ********************************************************/
+body {
+	 font-size            : 85%;
+   background-color     : white;
+}
+*>body { /* ignored by IE; applied by Mozilla */
+	 font-size            : 100%;
+}
+
+pre, pre.cgraphic {
+   margin               : 0.3em 0.4em 0.2em 0em;
+   padding              : 0.2em 0em 0.2em 2em;
+   text-align           : left;
+   background-color     : #f0f0f0;
+   text-indent          : 0px;
+}
+
+/* some <fig> and <codeblock> tags use frame="topbot" to force lines - not wanted, 
+   as <pre> has shaded background - so don't display resulting <hr> tags.
+   note: Neil Dewhurst 2/12/2005 - Now redundant, so commented out
+hr {
+   display             : none;
+}
+*/
+
+.figborder, .figsides, .figtop, .figbottom, .figtopbot {
+   border              : none;
+   margin               : 0em 0em 0em 0em;
+   padding              : 0em 0em 0em 0em;
+}   
+
+
+/*******************
+ * Docs CD (NB designed for inline elements only!)
+ *******************/
+
+.docscd {
+  background:url(docscd.gif) no-repeat;
+  background-position: top right;
+  padding-right: 18px;
+}
+
+/*******************
+ * mmobj           *
+ *******************/
+div.mmobj {
+   margin-top           : 1em;
+   margin-bottom        : 1em;
+   text-align           : center
+}
+
+/*******************
+ * figure caption  *
+ *******************/
+.figcap {
+   font-style           : italic
+}
+
+/*******************
+ * images as links *
+ *******************/
+a img {
+   border               : 0;
+   margin               : 10px;
+   vertical-align       : middle;
+}
+
+/*******************
+ * images as links in pre (as in c.gif in syntax diagram)
+ *******************/
+pre a img {
+   border               : 0;
+   margin               : 0px;
+   vertical-align       : middle;
+}
+
+/*******************
+ * diagnostic msg  *
+ *******************/
+.bipinsert {
+   background-color     : #dddddd;
+}
+
+/*******************
+ * label box       *
+ *******************/
+div.pblklblbox {
+   background-color     : #f2f2f2;
+   border               : gray solid 1px;
+   margin-left          : 4em;
+   margin-right         : 4em;
+   margin-top           : 1em;
+   margin-bottom        : 1em;
+}
+
+.definition {
+   border-top           : solid;
+   border-bottom        : solid;
+   border-width         : 1px;
+   margin-left          : 7em;
+   margin-right         : 7em;
+   padding              : 0.2em 0.2em .5em 1em;
+}
+
+.prereq, .postreq, .result {
+   background-color     : #f8f8f8;
+   margin               : 0.2em 0em 0.2em 0em;
+   padding              : 0.2em 0.5em 0.2em 1em;
+   border-left-color    : gray;
+	 border-left-style    : solid;
+	 border-left-width    : 1px;
+}
+.prereq p, .postreq p, .result p {
+   background-color     : #f8f8f8;
+   margin               : 0em 0em 0em 0em;
+   padding              : 0.2em 0em 0.2em 0em;
+}
+
+.result {
+  border:none;
+/*
+  background-color: #f0f0f0;
+  border-left-color: gray;
+  border-left-style: solid;
+  border-left-width: 1px;
+*/
+}
+
+.elementintro {
+  font-weight: bold;
+}
+
+/*******************
+ * tip boxes       *
+ *******************/
+
+.tip        { background-image: url(tip3.gif);}
+.warning    { background-image: url(warning3.gif);}
+.problem    { background-image: url(problem3.gif);}
+.diagnostic { background-image: url(diagnostic3.gif);}
+.bearings   { background-image: url(bearings3.gif);}
+.query      { background-image: url(query3.gif);}
+
+.tip, .warning, .problem, .diagnostic, .query, .bearings {
+   background-color     : #f0f0f0;
+   background-repeat    : no-repeat;
+   background-position  : top left;
+   margin-top           : 1em;
+   margin-bottom        : 1em;
+   padding              : 10px 4em 1em 40px;
+}
+.prereq p.tip, .prereq p.warning, .prereq p.problem, .prereq p.diagnostic, .prereq p.query, .prereq p.bearings,
+.result p.tip, .result p.warning, .result p.problem, .result p.diagnostic, .result p.query, .result p.bearings,
+.postreq p.tip, .postreq p.warning, .postreq p.problem, .postreq p.diagnostic, .postreq p.query, .postreq p.bearings {
+   background-color     : #f0f0f0;
+   background-color     : #f8f8f8;
+   background-repeat    : no-repeat;
+   background-position  : top left;
+   margin-top           : 1em;
+   margin-bottom        : 1em;
+   padding              : 10px 4em 1em 40px;
+}
+
+/*******************
+ * rev bar stuff   *
+ *******************/
+#changed {
+    position: absolute;
+    left: 2px;
+    color: red;
+    background-color: white;
+    font-style: normal;
+    font-weight: normal;
+}
+
+/*******************
+ * messages        *
+ *******************/
+div.msg {
+   background-image     : url(helpbanner2.gif);
+   background-repeat    : no-repeat;
+   background-position  : top left;
+   margin-top           : 0em;
+   margin-bottom        : 1em;
+   margin-left          : 0em;
+   margin-right         : 0em;
+   padding-top          : 0.2em;
+   padding-left         : 0em;
+}
+
+div.msgnum, div.msgtext {
+   margin-top           : .5em;
+}
+
+
+/********************************************************
+ * Status box:
+ * Expectation is that the following is only present
+ * in internal builds - could therefore delete this
+ * section for shipping
+ ********************************************************/
+
+.status, .statusl, .statusr {
+   position             : relative;
+   font-size            : 95%;
+   text-align           : left;
+   color                : #EEE8AA;
+   background-color     : black;
+   border               : 0px;
+   margin-top           : 0em;
+   margin-bottom        : 0em;
+   margin-left          : 0em;
+   margin-right         : 0em;
+   padding-top          : 0em;
+   padding-bottom       : 0em;
+   padding-left         : 0.5em;
+   padding-right        : 0.5em;
+}
+.statusl {
+   text-align           : left;
+}
+.statusr {
+   text-align           : right;
+}
+
+#revised {
+   background-color     : #880000;
+   color                : #EEE8AA;
+}
+
+.red {
+   color                : #ff0000;
+}
+
+/*******************
+ * comments        *
+ *******************/
+.comment, .commentblk {
+   color                : #0000dd;
+}
+.commentblk {
+   margin               : .5em 3em .5em 3em;
+   padding              : .5em 1.5em .5em 1.5em;
+   background-color     : #e6e6ff;
+   border               : 2px solid #000099;
+}
+
+/**************************
+ * Start Here topics        *
+ *************************/
+.starthere { background-color: #F4F5FF; } 
+
+.starthere_workbench      { background-image: url(workbench_link.gif);}
+.starthere_external_link      { background-image: url(external_link.gif);}
+
+.starthere_workbench {
+  /* background-color     : #000000;*/
+   background-repeat    : no-repeat;
+   background-position  : left;
+   margin-top           : 1em;
+   margin-bottom        : 1em; 
+   margin-left          : 1px;
+   margin-right         : 1px;
+   padding              : 2px 2px 2px 20px;
+}
+
+.starthere_external_link {
+  /* background-color     : #000000;*/
+   background-repeat    : no-repeat;
+   background-position  : left;
+   margin-top           : 1em;
+   margin-bottom        : 1em; 
+   margin-left          : 1px;
+   margin-right         : 1px;
+   padding              : 1px 1px 1px 18px;
+}
+
